@@ -54,16 +54,3 @@ do "data/vars/current method"
 // INTENT - recoded *intention* to have additional children
 // RWANT - do you want a(nother) baby sometime? raw, w/ followup of PROBWANT for dks
 do "data/vars/wantmore"
-
-** steriliztaion regret 
-do "data/vars/ster regret"
-
-** duration of use
-
-** Housing insecurity/other disruptive events?
-
-
-
-
-
-
