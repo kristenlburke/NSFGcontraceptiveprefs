@@ -47,16 +47,6 @@ do "data/vars/education"
 // CONSTAT1
 do "data/vars/current method"
 
-** Source of care
-// USUALCAR
-// USLPLACE
-do "data/vars/source of care"
-
-** Sexual activity
-// RHADSEX
-// SEX3MO
-do "data/vars/sexual activity"
-
 ** Geography
 // METRO
 
