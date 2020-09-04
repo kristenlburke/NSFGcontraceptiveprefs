@@ -1,10 +1,6 @@
-* Set up the base Cohab Fertility environment.
+* Set up the base environment.
 
-* The current directory is assumed to be the one with the base Cohab Fertility code.
-
-* We expect to find your setup file, named setup_<username>.do
-* in the base Cohab Fertility directory.
-
+* The current directory is assumed to be the one with the base  code.
 
 * Find my home directory, depending on OS.
 if ("`c(os)'" == "Windows") {
@@ -33,12 +29,6 @@ if ("$boxdir" == "") {
     exit
 }
 
-
-* Files created from original data to be used by other project members or 
-* to support analyses in papers are put in the "shared" directory.
-* If a file is in the shared directory, there should be code that takes us from
-* an original data file to the shared data file. The name of the file with 
-* that code should be the same name as the shared data file.
 
 
 
