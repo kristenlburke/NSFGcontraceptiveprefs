@@ -42,7 +42,6 @@ svy, subpop(if includedsex3mo == 1): poisson preferanotherdummy i.b5.cpcollapsed
 // keep if includedsex3mo == 1 - if we drop the includedsex3mo, i'm not detecting any changes in CIs or SEs
 // Begin export w/ a "replace" at end of outreg command
 
-** WITHOUT MSA **
 svy, subpop(if includedsex3mo == 1): poisson preferanotherdummy i.b5.cpcollapsednone, irr
 outreg2 using "$results/poisson_includedsex3mo_nometro.xls", sideway stats(coef ci) alpha(0.001, 0.01, 0.05) dec(2) label eform replace 
 
@@ -56,37 +55,3 @@ foreach var in `poissonvars' {
 // for all variables-- AORs
 svy, subpop(if includedsex3mo == 1): poisson preferanotherdummy i.b5.cpcollapsednone `poissonvars', irr
 outreg2 using "$results/poisson_includedsex3mo_nometro.xls", sideway stats(coef ci) alpha(0.001, 0.01, 0.05) dec(2) label eform append 
-
-exit
-
-// model build - 
-
-// should we cut metro? it's not necessarily explaining a ton
-
-poisson preferanotherdummy i.b5.cpcollapsednone i.b2.HISPRACE i.insurancecat3 i.agecat3 i.b4.fplcat4 if includedsex3mo == 1, irr
-est sto m1
-
-// add one var at a time
-poisson preferanotherdummy i.b5.cpcollapsednone i.b2.HISPRACE i.insurancecat3 i.agecat3 i.b4.fplcat4 i.METRO if includedsex3mo == 1, irr
-est sto m2
-lrtest m1 m2, stats 
-
-
-// include insurance?
-
-poisson preferanotherdummy i.b5.cpcollapsednone i.b2.HISPRACE i.agecat3 i.b4.fplcat4 i.METRO if includedsex3mo == 1, irr
-est sto m1
-
-// add one var at a time
-poisson preferanotherdummy i.b5.cpcollapsednone i.b2.HISPRACE i.insurancecat3 i.agecat3 i.b4.fplcat4 i.METRO  if includedsex3mo == 1, irr
-est sto m2
-lrtest m1 m2, stats 
-
-// exclude insurance AND metro?
-
-poisson preferanotherdummy i.b5.cpcollapsednone i.b2.HISPRACE i.agecat3 i.b4.fplcat4  if includedsex3mo == 1, irr
-est sto m1
-
-poisson preferanotherdummy i.b5.cpcollapsednone i.b2.HISPRACE i.insurancecat3 i.agecat3 i.b4.fplcat4 i.METRO  if includedsex3mo == 1, irr
-est sto m2
-lrtest m1 m2, stats 
